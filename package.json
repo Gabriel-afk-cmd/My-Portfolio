@@ -1,0 +1,12 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "\"Eine geschützte Website mit Zugangsschlüssel\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "{",
+    "start": "node server.js"
+  },
+  "author": "\"Gabriel Häberli\"",
+  "license": "ISC"
+}
