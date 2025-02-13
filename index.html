@@ -7,10 +7,23 @@
 </head>
 <body>
     <h1>Passwortgeschützter Zugang</h1>
-    <form action="/login" method="POST">
+    <form onsubmit="return checkPassword()">
         <label for="password">Geben Sie das Passwort ein:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
+        <input type="password" id="password" required><br><br>
         <button type="submit">Einloggen</button>
     </form>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            if (password === 'meinGeheimesPasswort') {  // Ersetze 'meinGeheimesPasswort' durch dein echtes Passwort
+                window.location.href = 'index1.html';  // Weiterleitung zur Hauptseite
+                return false;
+            } else {
+                alert('Falsches Passwort. Bitte versuchen Sie es erneut.');
+                return false;
+            }
+        }
+    </script>
 </body>
 </html>
