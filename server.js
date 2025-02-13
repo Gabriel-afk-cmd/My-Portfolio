@@ -17,7 +17,7 @@ app.post('/login', (req, res) => {
     const userPassword = req.body.password;
 
     if (userPassword === PASSWORD) {
-        res.redirect('/index.html');  // Weiterleitung zur Hauptseite
+        res.redirect('/index1.html');  // Weiterleitung zur Hauptseite
     } else {
         res.send(`
             <h1>Zugriff verweigert</h1>
