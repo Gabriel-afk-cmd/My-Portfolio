@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Passwortgeschützter Zugang</title>
+    <title>Login-Seite</title>
 </head>
 <body>
-    <h1>Passwortgeschützter Zugang</h1>
+    <h1>Login-Seite</h1>
     <form onsubmit="return checkPassword()">
-        <label for="password">Geben Sie das Passwort ein:</label><br>
-        <input type="password" id="password" required><br><br>
+        <label for="password">Passwort:</label>
+        <input type="password" id="password" required>
         <button type="submit">Einloggen</button>
     </form>
 
     <script>
         function checkPassword() {
             const password = document.getElementById('password').value;
-            if (password === 'meinGeheimesPasswort') {  // Ersetze 'meinGeheimesPasswort' durch dein echtes Passwort
-                window.location.href = 'index1.html';  // Weiterleitung zur Hauptseite
+            if (password === 'meinGeheimesPasswort') {  // Passe hier dein Passwort an
+                window.location.replace('index1.html');  // Zuverlässigere Weiterleitung
                 return false;
             } else {
                 alert('Falsches Passwort. Bitte versuchen Sie es erneut.');
