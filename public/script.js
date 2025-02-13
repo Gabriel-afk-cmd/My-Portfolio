@@ -1,1 +1,0 @@
-console.log("Ihre Website ist durch einen Zugangsschlüssel geschützt.");
