@@ -5,12 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sprachen - Gabriel Häberli</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .language-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .language-item {
+            display: flex;
+            align-items: center;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .language-item img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .language-item span {
+            font-size: 1.2em;
+            color: #2c3e50;
+        }
+    </style>
 </head>
 <body>
     <nav>
         <a href="index.html">Startseite</a>
         <a href="personalien.html">Personalien</a>
-        <a href="bildung.html">Schulbildung
+        <a href="bildung.html">Schulbildung</a>
         <a href="zertifikate.html">Zertifikate</a>
         <a href="erfahrungen.html">Berufserfahrungen</a>
         <a href="sprachen.html">Sprachen</a>
@@ -24,12 +55,27 @@
         </header>
         <section>
             <h2>Sprachkenntnisse</h2>
-            <ul>
-                <li>Deutsch: Muttersprache 🇨🇭</li>
-                <li>Portugiesisch: Muttersprache 🇧🇷</li>
-                <li>Englisch: Sehr gute Kenntnisse 🇺🇸</li>
-                <li>Spanisch: Sehr gute Kenntnisse 🇪🇸</li>
-                <li>Französisch: Gute Kenntnisse 🇫🇷</li>
+            <ul class="language-list">
+                <li class="language-item">
+                    <img src="images/swiss_flag.png" alt="Schweiz">
+                    <span>Deutsch: Muttersprache</span>
+                </li>
+                <li class="language-item">
+                    <img src="images/brazil_flag.png" alt="Brasilien">
+                    <span>Portugiesisch: Muttersprache</span>
+                </li>
+                <li class="language-item">
+                    <img src="images/usa_flag.png" alt="USA">
+                    <span>Englisch: Sehr gute Kenntnisse</span>
+                </li>
+                <li class="language-item">
+                    <img src="images/spain_flag.png" alt="Spanien">
+                    <span>Spanisch: Sehr gute Kenntnisse</span>
+                </li>
+                <li class="language-item">
+                    <img src="images/france_flag.png" alt="Frankreich">
+                    <span>Französisch: Gute Kenntnisse</span>
+                </li>
             </ul>
         </section>
     </div>
