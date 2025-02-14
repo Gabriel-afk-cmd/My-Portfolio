@@ -14,24 +14,23 @@ nav {
     top: 0;
     z-index: 1000;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;  /* Ermöglicht das Umbrechen der Links, falls es zu eng wird */
-    gap: 10px;        /* Sorgt für Abstände zwischen den Links */
+    justify-content: space-around; /* Gleicher Abstand zwischen den Links */
+    flex-wrap: nowrap; /* Verhindert das Umbrechen */
+    overflow-x: auto; /* Ermöglicht horizontales Scrollen bei sehr kleinen Geräten */
 }
 
 nav a {
     color: #ecf0f1;
-    padding: 10px 15px;
+    padding: 10px 20px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.1em;
+    font-size: 1.2em;
     transition: color 0.3s ease;
-    border-radius: 5px;
+    white-space: nowrap; /* Verhindert, dass der Text in mehreren Zeilen angezeigt wird */
 }
 
 nav a:hover {
     color: #f39c12;
-    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .container {
@@ -62,9 +61,13 @@ img {
 
 /* Responsive Anpassung für kleine Bildschirme */
 @media (max-width: 768px) {
+    nav {
+        padding: 10px;
+    }
+
     nav a {
         font-size: 1em;
-        padding: 8px 10px;
+        padding: 8px 15px;
     }
 
     img {
