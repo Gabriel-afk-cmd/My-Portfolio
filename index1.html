@@ -5,30 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Gabriel Häberli</title>
     <link rel="stylesheet" href="style.css">
-    <script>
-        // Prüfen, ob der Benutzer eingeloggt ist
-        if (localStorage.getItem('loggedIn') !== 'true') {
-            window.location.replace('login.html');  // Falls nicht eingeloggt, umleiten
-        }
-
-        function logout() {
-            localStorage.removeItem('loggedIn');  // Login-Daten löschen
-            window.location.replace('login.html');  // Zurück zur Login-Seite
-        }
-    </script>
 </head>
 <body>
     <nav>
         <a href="index.html">Startseite</a>
         <a href="personalien.html">Personalien</a>
-        <a href="bildung.html">Schulbildung</a>
+        <a href="bildung.html">Schulbildung<a>
         <a href="zertifikate.html">Zertifikate</a>
         <a href="erfahrungen.html">Berufserfahrungen</a>
         <a href="sprachen.html">Sprachen</a>
         <a href="referenzen.html">Referenzen</a>
         <a href="hobbys.html">Hobbys</a>
         <a href="kontakt.html">Kontakt</a>
-        <button onclick="logout()" style="float: right;">Logout</button>
     </nav>
     <div class="container">
         <header>
