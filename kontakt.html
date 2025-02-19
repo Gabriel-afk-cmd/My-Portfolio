@@ -5,57 +5,177 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontakt - Gabriel Häberli</title>
     <link rel="stylesheet" href="style.css">
+
+    <script>
+        const translations = {
+            en: {
+                "page-title": "Contact",
+                "hero-title": "Contact Me",
+                "contact-info": "Contact Information",
+                "name": "Your Name",
+                "email": "Your Email",
+                "message": "Your Message",
+                "send-button": "Send Message",
+                "phone": "Phone",
+                "email-label": "Email",
+                "address": "Address"
+            },
+            de: {
+                "page-title": "Kontakt",
+                "hero-title": "Kontakt",
+                "contact-info": "Kontaktinformationen",
+                "name": "Dein Name",
+                "email": "Deine E-Mail",
+                "message": "Deine Nachricht",
+                "send-button": "Nachricht senden",
+                "phone": "Telefon",
+                "email-label": "E-Mail",
+                "address": "Adresse"
+            }
+        };
+
+        function switchLanguage(lang) {
+            localStorage.setItem("language", lang);
+            document.querySelector("title").textContent = translations[lang]["page-title"];
+            document.querySelectorAll("[data-lang]").forEach(el => {
+                el.textContent = translations[lang][el.getAttribute("data-lang")];
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const savedLang = localStorage.getItem("language") || "de";
+            switchLanguage(savedLang);
+        });
+    </script>
+
     <style>
-        .contact-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 70vh;
+        /* Allgemeine Stile */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom right, #eef2f3, #8e9eab);
+            color: #333;
+            margin: 0;
+            padding: 0;
         }
-        .contact-form {
-            background: #ffffff;
-            padding: 30px;
+
+        /* Navigation */
+        nav {
+            background-color: #2c3e50;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: #ecf0f1;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        /* Sprachumschaltung */
+        .settings {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .settings button {
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 8px;
+            margin: 5px;
+            transition: background 0.3s ease;
+        }
+        .settings button:hover {
+            background: #f39c12;
+        }
+
+        /* Hauptcontainer */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
             border-radius: 15px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 600px;
-        }
-        .contact-form h2 {
-            margin-bottom: 20px;
-            color: #205c99;
-            font-size: 1.8em;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
-        .contact-form input,
-        .contact-form textarea {
+
+        /* Kontaktformular */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .contact-form input, .contact-form textarea {
             width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
+            padding: 10px;
+            border: 1px solid #ccc;
             border-radius: 8px;
             font-size: 1em;
+            font-family: 'Poppins', sans-serif;
         }
+
         .contact-form button {
-            width: 100%;
-            padding: 15px;
-            background: #0099ff;
+            background-color: #3498db;
             color: white;
-            font-size: 1em;
+            padding: 10px;
+            font-size: 1.2em;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             transition: background 0.3s ease;
         }
+
         .contact-form button:hover {
-            background: #009cf6;
+            background-color: #2980b9;
+        }
+
+        /* Kontaktinfo */
+        .contact-info {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .contact-info p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .contact-info i {
+            color: #3498db;
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            font-size: 1em;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
+
+    <!-- Navigation -->
     <nav>
         <a href="index.html">Startseite</a>
         <a href="personalien.html">Personalien</a>
-        <a href="bildung.html">Schulbildung
+        <a href="bildung.html">Schulbildung</a>
         <a href="zertifikate.html">Zertifikate</a>
         <a href="erfahrungen.html">Berufserfahrungen</a>
         <a href="sprachen.html">Sprachen</a>
@@ -63,15 +183,40 @@
         <a href="hobbys.html">Hobbys</a>
         <a href="kontakt.html">Kontakt</a>
     </nav>
-    <div class="container contact-container">
-        <form class="contact-form" action="https://formspree.io/f/xldglaga" method="POST">
-            <h2>Kontaktformular</h2>
-            <input type="text" name="name" placeholder="Ihr Name" required>
-            <input type="email" name="_replyto" placeholder="Ihre E-Mail" required>
-            <textarea name="nachricht" rows="5" placeholder="Ihre Nachricht" required></textarea>
-            <button type="submit">Nachricht senden</button>
-        </form>
+
+    <!-- Sprachumschaltung -->
+    <div class="settings">
+        <button onclick="switchLanguage('de')">🇩🇪 Deutsch</button>
+        <button onclick="switchLanguage('en')">🇬🇧 English</button>
     </div>
-    <footer>© 2025 Gabriel Häberli. Alle Rechte vorbehalten.</footer>
+
+    <!-- Hauptinhalt -->
+    <div class="container">
+        <header>
+            <h1 data-lang="hero-title">Kontakt</h1>
+        </header>
+
+        <!-- Kontaktformular -->
+        <form class="contact-form">
+            <input type="text" placeholder="Dein Name" data-lang="name" required>
+            <input type="email" placeholder="Deine E-Mail" data-lang="email" required>
+            <textarea rows="5" placeholder="Deine Nachricht" data-lang="message" required></textarea>
+            <button type="submit" data-lang="send-button">Nachricht senden</button>
+        </form>
+
+        <!-- Kontaktinformationen -->
+        <div class="contact-info">
+            <h2 data-lang="contact-info">Kontaktinformationen</h2>
+            <p><i class="fas fa-phone"></i> <strong data-lang="phone">Telefon:</strong> +41 76 503 60 50</p>
+            <p><i class="fas fa-envelope"></i> <strong data-lang="email-label">E-Mail:</strong> <a href="mailto:gabriel.haeberli@sus.schulepfungen.ch">gabriel.haeberli@sus.schulepfungen.ch</a></p>
+            <p><i class="fas fa-map-marker-alt"></i> <strong data-lang="address">Adresse:</strong> Dürrenrainstrasse 28, Pfungen</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 Gabriel Häberli. Alle Rechte vorbehalten.
+    </footer>
+
 </body>
 </html>
