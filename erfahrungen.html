@@ -5,8 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Berufserfahrungen - Gabriel Häberli</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome für Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
-        img {
+        /* Allgemeine Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom right, #eef2f3, #8e9eab);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigationsleiste */
+        nav {
+            background-color: #2c3e50;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: #ecf0f1;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        /* Hauptcontainer */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header */
+        header h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #2c3e50;
+        }
+
+        /* Grid-Layout für Erfahrungen */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .experience-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Erfahrungskarte */
+        .experience-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Überschrift mit Icon */
+        .experience-card h2 {
+            font-size: 1.5em;
+            color: #34495e;
+            display: flex;
+            align-items: center;
+        }
+
+        .experience-card h2 i {
+            margin-right: 10px;
+            color: #f39c12;
+        }
+
+        /* Liste für Schnupperlehren */
+        .experience-card ul {
+            padding-left: 20px;
+        }
+
+        /* Bilder */
+        .experience-card img {
             width: 100%;
             height: auto;
             border-radius: 10px;
@@ -14,16 +112,31 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        @media (min-width: 768px) {
-            img {
-                max-width: 50%;
-                display: block;
-                margin: 20px auto;
-            }
+        /* Fade-in Effekt */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-in-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            font-size: 1em;
         }
     </style>
 </head>
 <body>
+
+    <!-- Navigation -->
     <nav>
         <a href="index.html">Startseite</a>
         <a href="personalien.html">Personalien</a>
@@ -35,25 +148,57 @@
         <a href="hobbys.html">Hobbys</a>
         <a href="kontakt.html">Kontakt</a>
     </nav>
+
+    <!-- Hauptinhalt -->
     <div class="container">
         <header>
             <h1>Berufserfahrungen</h1>
         </header>
-        <section>
-            <h2>Zukunftstag</h2>
-            <p>Informatiker EFZ Applikationsentwickler, Pisontec, Juni 2022</p>
-            <img src="images/server-example.png" alt="Programmierer bei der Arbeit">
-        </section>
-        <section>
-            <h2>Schnupperlehren</h2>
-            <ul>
-                <li>Informatiker EFZ Plattformentwicklung, Comfox AG, Januar 2025</li>
-                <li>Informatiker EFZ Plattformentwicklung, Baumer Electric, Januar 2025</li>
-                <li>Informatiker EFZ Plattformentwicklung, UMB, Februar 2025</li>
-            </ul>
-            <img src="images/code-example.png" alt="Serverraum">
-        </section>
+
+        <div class="experience-grid">
+            <!-- Zukunftstag -->
+            <section class="experience-card fade-in">
+                <h2><i class="fas fa-laptop-code"></i> Zukunftstag</h2>
+                <p>Informatiker EFZ Applikationsentwickler, Pisontec, Juni 2022</p>
+                <img src="images/server-example.png" alt="Programmierer bei der Arbeit">
+            </section>
+
+            <!-- Schnupperlehren -->
+            <section class="experience-card fade-in">
+                <h2><i class="fas fa-server"></i> Schnupperlehren</h2>
+                <ul>
+                    <li>Informatiker EFZ Plattformentwicklung, Comfox AG, Januar 2025</li>
+                    <li>Informatiker EFZ Plattformentwicklung, Baumer Electric, Januar 2025</li>
+                    <li>Informatiker EFZ Plattformentwicklung, UMB, Februar 2025</li>
+                </ul>
+                <img src="images/code-example.png" alt="Serverraum">
+            </section>
+        </div>
     </div>
-    <footer>© 2025 Gabriel Häberli. Alle Rechte vorbehalten.</footer>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 Gabriel Häberli. Alle Rechte vorbehalten.
+    </footer>
+
+    <!-- JavaScript für Fade-in Effekt -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let elements = document.querySelectorAll(".fade-in");
+
+            function checkScroll() {
+                elements.forEach(el => {
+                    let position = el.getBoundingClientRect().top;
+                    if (position < window.innerHeight - 100) {
+                        el.classList.add("visible");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", checkScroll);
+            checkScroll();
+        });
+    </script>
+
 </body>
 </html>
