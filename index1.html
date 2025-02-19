@@ -5,12 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Gabriel Häberli</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome für Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* Allgemeine Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom right, #eef2f3, #8e9eab);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigationsleiste */
+        nav {
+            background-color: #2c3e50;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: #ecf0f1;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        /* Hero-Bereich */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Call-to-Action Buttons */
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .cta-buttons a {
+            text-decoration: none;
+            background: #2c3e50;
+            color: white;
+            padding: 12px 20px;
+            font-size: 1.2em;
+            border-radius: 8px;
+            transition: background 0.3s ease, transform 0.2s ease-in-out;
+        }
+
+        .cta-buttons a:hover {
+            background: #f39c12;
+            transform: scale(1.05);
+        }
+
+        /* Fade-in Effekt */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-in-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            font-size: 1em;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Navigation -->
     <nav>
         <a href="index.html">Startseite</a>
         <a href="personalien.html">Personalien</a>
-        <a href="bildung.html">Schulbildung<a>
+        <a href="bildung.html">Schulbildung</a>
         <a href="zertifikate.html">Zertifikate</a>
         <a href="erfahrungen.html">Berufserfahrungen</a>
         <a href="sprachen.html">Sprachen</a>
@@ -18,13 +125,42 @@
         <a href="hobbys.html">Hobbys</a>
         <a href="kontakt.html">Kontakt</a>
     </nav>
-    <div class="container">
-        <header>
-            <h1>Willkommen auf meinem Portfolio</h1>
-            <p>Hier finden Sie alle Informationen über meinen Lebenslauf.</p>
-            <img src="images/mein-foto.jpeg" alt="Foto von Gabriel Häberli" width="50" height="300">
-        </header>
-    </div>
-    <footer>© 2025 Gabriel Häberli. Alle Rechte vorbehalten.</footer>
+
+    <!-- Hero-Bereich -->
+    <section class="hero fade-in">
+        <img src="images/mein-foto.jpeg" alt="Foto von Gabriel Häberli">
+        <h1>Willkommen auf meinem Portfolio</h1>
+        <p>Hier finden Sie alle Informationen über meinen Lebenslauf.</p>
+
+        <div class="cta-buttons">
+            <a href="erfahrungen.html"><i class="fas fa-briefcase"></i> Berufserfahrungen</a>
+            <a href="kontakt.html"><i class="fas fa-envelope"></i> Kontakt</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 Gabriel Häberli. Alle Rechte vorbehalten.
+    </footer>
+
+    <!-- JavaScript für Fade-in Effekt -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let elements = document.querySelectorAll(".fade-in");
+
+            function checkScroll() {
+                elements.forEach(el => {
+                    let position = el.getBoundingClientRect().top;
+                    if (position < window.innerHeight - 100) {
+                        el.classList.add("visible");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", checkScroll);
+            checkScroll();
+        });
+    </script>
+
 </body>
 </html>
