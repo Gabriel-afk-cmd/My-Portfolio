@@ -9,6 +9,42 @@
     <!-- Font Awesome für Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <script>
+        const translations = {
+            en: {
+                "page-title": "Languages",
+                "hero-title": "Languages",
+                "lang-german": "German: Native",
+                "lang-portuguese": "Portuguese: Native",
+                "lang-english": "English: Very good",
+                "lang-spanish": "Spanish: Very good",
+                "lang-french": "French: Good"
+            },
+            de: {
+                "page-title": "Sprachen",
+                "hero-title": "Sprachen",
+                "lang-german": "Deutsch: Muttersprache",
+                "lang-portuguese": "Portugiesisch: Muttersprache",
+                "lang-english": "Englisch: Sehr gute Kenntnisse",
+                "lang-spanish": "Spanisch: Sehr gute Kenntnisse",
+                "lang-french": "Französisch: Gute Kenntnisse"
+            }
+        };
+
+        function switchLanguage(lang) {
+            localStorage.setItem("language", lang);
+            document.querySelector("title").textContent = translations[lang]["page-title"];
+            document.querySelectorAll("[data-lang]").forEach(el => {
+                el.textContent = translations[lang][el.getAttribute("data-lang")];
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const savedLang = localStorage.getItem("language") || "de";
+            switchLanguage(savedLang);
+        });
+    </script>
+
     <style>
         /* Allgemeine Styles */
         body {
@@ -40,9 +76,29 @@
             color: #f39c12;
         }
 
+        /* Sprachumschaltung */
+        .settings {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .settings button {
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 8px;
+            margin: 5px;
+            transition: background 0.3s ease;
+        }
+        .settings button:hover {
+            background: #f39c12;
+        }
+
         /* Hauptcontainer */
         .container {
-            max-width: 800px;
+            max-width: 600px;
             margin: 40px auto;
             padding: 20px;
             background: white;
@@ -93,46 +149,6 @@
             margin-bottom: 10px;
         }
 
-        /* Sprachtext */
-        .language-item span {
-            font-size: 1.2em;
-            color: #2c3e50;
-            font-weight: 500;
-        }
-
-        /* Fortschrittsbalken */
-        .progress-bar {
-            width: 100%;
-            background: #ddd;
-            border-radius: 10px;
-            overflow: hidden;
-            height: 10px;
-            margin-top: 10px;
-        }
-
-        .progress {
-            height: 100%;
-            border-radius: 10px;
-        }
-
-        .german { width: 100%; background: #2ecc71; }
-        .portuguese { width: 100%; background: #2ecc71; }
-        .english { width: 85%; background: #f1c40f; }
-        .spanish { width: 75%; background: #f1c40f; }
-        .french { width: 50%; background: #e67e22; }
-
-        /* Fade-in Effekt */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-in-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         /* Footer */
         footer {
             text-align: center;
@@ -140,12 +156,13 @@
             background-color: #2c3e50;
             color: #ecf0f1;
             font-size: 1em;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Navigation bleibt auf Deutsch -->
     <nav>
         <a href="index.html">Startseite</a>
         <a href="personalien.html">Personalien</a>
@@ -158,71 +175,50 @@
         <a href="kontakt.html">Kontakt</a>
     </nav>
 
+    <!-- Sprachumschaltung -->
+    <div class="settings">
+        <button onclick="switchLanguage('de')">🇩🇪 Deutsch</button>
+        <button onclick="switchLanguage('en')">🇬🇧 English</button>
+    </div>
+
     <!-- Hauptinhalt -->
-    <div class="container fade-in">
+    <div class="container">
         <header>
-            <h1>Sprachen</h1>
+            <h1 data-lang="hero-title">Sprachen</h1>
         </header>
 
-        <section>
-            <h2>Sprachkenntnisse</h2>
-            <ul class="language-list">
-                <li class="language-item">
-                    <img src="images/swiss_flag.png" alt="Schweiz">
-                    <span>Deutsch: Muttersprache</span>
-                    <div class="progress-bar"><div class="progress german"></div></div>
-                </li>
+        <ul class="language-list">
+            <li class="language-item">
+                <img src="images/swiss_flag.png" alt="Schweiz">
+                <span data-lang="lang-german">Deutsch: Muttersprache</span>
+            </li>
 
-                <li class="language-item">
-                    <img src="images/brazil_flag.png" alt="Brasilien">
-                    <span>Portugiesisch: Muttersprache</span>
-                    <div class="progress-bar"><div class="progress portuguese"></div></div>
-                </li>
+            <li class="language-item">
+                <img src="images/brazil_flag.png" alt="Brasilien">
+                <span data-lang="lang-portuguese">Portugiesisch: Muttersprache</span>
+            </li>
 
-                <li class="language-item">
-                    <img src="images/usa_flag.png" alt="USA">
-                    <span>Englisch: Sehr gute Kenntnisse</span>
-                    <div class="progress-bar"><div class="progress english"></div></div>
-                </li>
+            <li class="language-item">
+                <img src="images/usa_flag.png" alt="USA">
+                <span data-lang="lang-english">Englisch: Sehr gute Kenntnisse</span>
+            </li>
 
-                <li class="language-item">
-                    <img src="images/spain_flag.png" alt="Spanien">
-                    <span>Spanisch: Sehr gute Kenntnisse</span>
-                    <div class="progress-bar"><div class="progress spanish"></div></div>
-                </li>
+            <li class="language-item">
+                <img src="images/spain_flag.png" alt="Spanien">
+                <span data-lang="lang-spanish">Spanisch: Sehr gute Kenntnisse</span>
+            </li>
 
-                <li class="language-item">
-                    <img src="images/france_flag.png" alt="Frankreich">
-                    <span>Französisch: Gute Kenntnisse</span>
-                    <div class="progress-bar"><div class="progress french"></div></div>
-                </li>
-            </ul>
-        </section>
+            <li class="language-item">
+                <img src="images/france_flag.png" alt="Frankreich">
+                <span data-lang="lang-french">Französisch: Gute Kenntnisse</span>
+            </li>
+        </ul>
     </div>
 
     <!-- Footer -->
     <footer>
         © 2025 Gabriel Häberli. Alle Rechte vorbehalten.
     </footer>
-
-    <!-- JavaScript für Fade-in Effekt -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let elements = document.querySelectorAll(".fade-in");
-
-            function checkScroll() {
-                elements.forEach(el => {
-                    let position = el.getBoundingClientRect().top;
-                    if (position < window.innerHeight - 100) {
-                        el.classList.add("visible");
-                    }
-                });
-            }
-
-            window.addEventListener("scroll", checkScroll);
-            checkScroll();
-        });
-    </script>
 
 </body>
 </html>
