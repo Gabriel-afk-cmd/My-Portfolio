@@ -9,64 +9,6 @@
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <script>
-        const translations = {
-            en: {
-                "page-title": "Certificates",
-                "hero-title": "Certificates",
-                "cert-1-title": "Mimo Python Fundamentals",
-                "cert-1-desc": "Fundamentals of programming with Python.",
-                "cert-2-title": "Mimo Python AI Development",
-                "cert-2-desc": "Developing artificial intelligence with Python.",
-                "cert-3-title": "SentinelOne Sales Accreditation",
-                "cert-3-desc": "Fundamentals of sales strategy.",
-                "cert-4-title": "Multicheck ICT Aptitude Analysis",
-                "cert-4-desc": "Results of the ICT EFZ aptitude test.",
-                "cert-5-title": "Mimo HTML & CSS",
-                "cert-5-desc": "Introduction to web development with HTML & CSS.",
-                "cert-6-title": "Mimo JavaScript Basics",
-                "cert-6-desc": "Fundamentals of JavaScript programming.",
-                "cert-7-title": "Cybersecurity Awareness",
-                "cert-7-desc": "Basic knowledge of cybersecurity threats and protection methods.",
-                "view-certificate": "View Certificate",
-                "view-analysis": "View Analysis"
-            },
-            de: {
-                "page-title": "Zertifikate",
-                "hero-title": "Zertifikate",
-                "cert-1-title": "Mimo Python Fundamentals",
-                "cert-1-desc": "Grundlagen der Programmierung mit Python.",
-                "cert-2-title": "Mimo Python AI Development",
-                "cert-2-desc": "Entwicklung künstlicher Intelligenz mit Python.",
-                "cert-3-title": "SentinelOne Sales Accreditation",
-                "cert-3-desc": "Grundlagen der Verkaufsstrategie.",
-                "cert-4-title": "Multicheck ICT Eignungsanalyse",
-                "cert-4-desc": "Ergebnisse der Eignungsanalyse für Informatiker EFZ.",
-                "cert-5-title": "Mimo HTML & CSS",
-                "cert-5-desc": "Einführung in die Webentwicklung mit HTML & CSS.",
-                "cert-6-title": "Mimo JavaScript Basics",
-                "cert-6-desc": "Grundlagen der JavaScript-Programmierung.",
-                "cert-7-title": "Cybersecurity Awareness",
-                "cert-7-desc": "Grundkenntnisse über Cybersecurity-Bedrohungen und Schutzmaßnahmen.",
-                "view-certificate": "Zertifikat ansehen",
-                "view-analysis": "Analyse ansehen"
-            }
-        };
-
-        function switchLanguage(lang) {
-            localStorage.setItem("language", lang);
-            document.querySelector("title").textContent = translations[lang]["page-title"];
-            document.querySelectorAll("[data-lang]").forEach(el => {
-                el.textContent = translations[lang][el.getAttribute("data-lang")];
-            });
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const savedLang = localStorage.getItem("language") || "de";
-            switchLanguage(savedLang);
-        });
-    </script>
-
     <style>
         /* General Styles */
         body {
@@ -96,26 +38,6 @@
         }
         nav a:hover {
             color: #f39c12;
-        }
-
-        /* Language Switch */
-        .settings {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .settings button {
-            background: #2c3e50;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            font-size: 1em;
-            cursor: pointer;
-            border-radius: 8px;
-            margin: 5px;
-            transition: background 0.3s ease;
-        }
-        .settings button:hover {
-            background: #f39c12;
         }
 
         /* Main Container */
@@ -196,23 +118,60 @@
         <a href="kontakt.html">Kontakt</a>
     </nav>
 
-    <!-- Language Switch -->
-    <div class="settings">
-        <button onclick="switchLanguage('de')">🇩🇪 Deutsch</button>
-        <button onclick="switchLanguage('en')">🇬🇧 English</button>
-    </div>
-
     <!-- Main Content -->
     <div class="container">
         <header>
-            <h1 data-lang="hero-title">Zertifikate</h1>
+            <h1>Zertifikate</h1>
         </header>
 
         <div class="certificate-container">
             <div class="certificate-item">
                 <img src="images/python_image.png" alt="Python Fundamentals">
-                <h3 data-lang="cert-1-title">Mimo Python Fundamentals</h3>
-                <p data-lang="cert-1-desc"></p>
+                <h3>Mimo Python Fundamentals</h3>
+                <p>Grundlagen der Programmierung mit Python.</p>
+                <a class="download-link" href="Files/Mimo_Python_Certificate.pdf" target="_blank">Zertifikat ansehen</a>
+            </div>
+
+            <div class="certificate-item">
+                <img src="images/AI.jpg" alt="Python AI Development">
+                <h3>Mimo Python AI Development</h3>
+                <p>Entwicklung künstlicher Intelligenz mit Python.</p>
+                <a class="download-link" href="Files/Python_AI_Development_Certificate.pdf" target="_blank">Zertifikat ansehen</a>
+            </div>
+
+            <div class="certificate-item">
+                <img src="images/Sentinel_one.png" alt="SentinelOne Sales Accreditation">
+                <h3>SentinelOne Sales Accreditation</h3>
+                <p>Grundlagen der Verkaufsstrategie.</p>
+                <a class="download-link" href="Files/Sales_applied.pdf" target="_blank">Zertifikat ansehen</a>
+            </div>
+
+            <div class="certificate-item">
+                <img src="images/multicheck_logo.png" alt="Multicheck ICT Eignungsanalyse">
+                <h3>Multicheck ICT Eignungsanalyse</h3>
+                <p>Ergebnisse der Eignungsanalyse für Informatiker EFZ.</p>
+                <a class="download-link" href="Files/Multicheck_Stellwerk.pdf" target="_blank">Analyse ansehen</a>
+            </div>
+
+            <div class="certificate-item">
+                <img src="images/html_css.png" alt="HTML & CSS Basics">
+                <h3>Mimo HTML & CSS</h3>
+                <p>Einführung in die Webentwicklung mit HTML & CSS.</p>
+                <a class="download-link" href="Files/Mimo_HTML_CSS_Certificate.pdf" target="_blank">Zertifikat ansehen</a>
+            </div>
+
+            <div class="certificate-item">
+                <img src="images/javascript.png" alt="JavaScript Basics">
+                <h3>Mimo JavaScript Basics</h3>
+                <p>Grundlagen der JavaScript-Programmierung.</p>
+                <a class="download-link" href="Files/Mimo_JavaScript_Certificate.pdf" target="_blank">Zertifikat ansehen</a>
+            </div>
+
+            <div class="certificate-item">
+                <img src="images/cybersecurity.png" alt="Cybersecurity Awareness">
+                <h3>Cybersecurity Awareness</h3>
+                <p>Grundkenntnisse über Cybersecurity-Bedrohungen und Schutzmaßnahmen.</p>
+                <a class="download-link" href="Files/Cybersecurity_Certificate.pdf" target="_blank">Zertifikat ansehen</a>
             </div>
         </div>
     </div>
