@@ -6,7 +6,7 @@
     <title>Berufserfahrungen - Gabriel Häberli</title>
     <link rel="stylesheet" href="style.css">
 
-    <!-- Font Awesome für Icons -->
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <script>
@@ -14,10 +14,9 @@
             en: {
                 "page-title": "Work Experience",
                 "hero-title": "Work Experience",
-                "internship": "Internships",
                 "future-day": "Future Day",
                 "future-day-desc": "IT Specialist EFZ Application Development, Pisontec, June 2022",
-                "internship-list": "Internships",
+                "internship": "Internships",
                 "internship-1": "IT Specialist EFZ Platform Development, Comfox AG, January 2025",
                 "internship-2": "IT Specialist EFZ Platform Development, Baumer Electric, January 2025",
                 "internship-3": "IT Specialist EFZ Platform Development, UMB, February 2025"
@@ -25,10 +24,9 @@
             de: {
                 "page-title": "Berufserfahrungen",
                 "hero-title": "Berufserfahrungen",
-                "internship": "Schnupperlehren",
                 "future-day": "Zukunftstag",
                 "future-day-desc": "Informatiker EFZ Applikationsentwicklung, Pisontec, Juni 2022",
-                "internship-list": "Schnupperlehren",
+                "internship": "Schnupperlehren",
                 "internship-1": "Informatiker EFZ Plattformentwicklung, Comfox AG, Januar 2025",
                 "internship-2": "Informatiker EFZ Plattformentwicklung, Baumer Electric, Januar 2025",
                 "internship-3": "Informatiker EFZ Plattformentwicklung, UMB, Februar 2025"
@@ -50,7 +48,7 @@
     </script>
 
     <style>
-        /* Allgemeine Styles */
+        /* General Styles */
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(to bottom right, #eef2f3, #8e9eab);
@@ -59,7 +57,7 @@
             padding: 0;
         }
 
-        /* Navigationsleiste */
+        /* Navigation Bar */
         nav {
             background-color: #2c3e50;
             padding: 15px;
@@ -80,7 +78,7 @@
             color: #f39c12;
         }
 
-        /* Sprachumschaltung */
+        /* Language Switch */
         .settings {
             text-align: center;
             margin-top: 20px;
@@ -100,7 +98,7 @@
             background: #f39c12;
         }
 
-        /* Hauptcontainer */
+        /* Main Container */
         .container {
             max-width: 800px;
             margin: 40px auto;
@@ -117,7 +115,7 @@
             color: #2c3e50;
         }
 
-        /* Berufserfahrungen Liste */
+        /* Work Experience Sections */
         section {
             margin-bottom: 40px;
         }
@@ -129,15 +127,15 @@
             margin-bottom: 10px;
         }
 
-        .experience-list {
-            list-style: none;
-            padding: 0;
+        /* Work Experience Grid */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
             text-align: center;
         }
 
-        .experience-list li {
-            font-size: 1.2em;
-            margin: 10px 0;
+        .experience-item {
             background: #f9f9f9;
             padding: 15px;
             border-radius: 10px;
@@ -145,9 +143,22 @@
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
-        .experience-list li:hover {
+        .experience-item:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .experience-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (min-width: 768px) {
+            .experience-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         /* Footer */
@@ -163,7 +174,7 @@
 </head>
 <body>
 
-    <!-- Navigation bleibt auf Deutsch -->
+    <!-- Navigation (Stays in German) -->
     <nav>
         <a href="index.html">Startseite</a>
         <a href="personalien.html">Personalien</a>
@@ -176,31 +187,35 @@
         <a href="kontakt.html">Kontakt</a>
     </nav>
 
-    <!-- Sprachumschaltung -->
+    <!-- Language Switch -->
     <div class="settings">
         <button onclick="switchLanguage('de')">🇩🇪 Deutsch</button>
         <button onclick="switchLanguage('en')">🇬🇧 English</button>
     </div>
 
-    <!-- Hauptinhalt -->
+    <!-- Main Content -->
     <div class="container">
         <header>
             <h1 data-lang="hero-title">Berufserfahrungen</h1>
         </header>
 
-        <section>
-            <h2 data-lang="future-day">Zukunftstag</h2>
-            <p data-lang="future-day-desc">Informatiker EFZ Applikationsentwicklung, Pisontec, Juni 2022</p>
-        </section>
+        <div class="experience-grid">
+            <div class="experience-item">
+                <h2 data-lang="future-day">Zukunftstag</h2>
+                <p data-lang="future-day-desc">Informatiker EFZ Applikationsentwicklung, Pisontec, Juni 2022</p>
+                <img src="images/server-example.png" alt="Server example">
+            </div>
 
-        <section>
-            <h2 data-lang="internship">Schnupperlehren</h2>
-            <ul class="experience-list">
-                <li data-lang="internship-1">Informatiker EFZ Plattformentwicklung, Comfox AG, Januar 2025</li>
-                <li data-lang="internship-2">Informatiker EFZ Plattformentwicklung, Baumer Electric, Januar 2025</li>
-                <li data-lang="internship-3">Informatiker EFZ Plattformentwicklung, UMB, Februar 2025</li>
-            </ul>
-        </section>
+            <div class="experience-item">
+                <h2 data-lang="internship">Schnupperlehren</h2>
+                <ul>
+                    <li data-lang="internship-1">Informatiker EFZ Plattformentwicklung, Comfox AG, Januar 2025</li>
+                    <li data-lang="internship-2">Informatiker EFZ Plattformentwicklung, Baumer Electric, Januar 2025</li>
+                    <li data-lang="internship-3">Informatiker EFZ Plattformentwicklung, UMB, Februar 2025</li>
+                </ul>
+                <img src="images/code-example.png" alt="Code example">
+            </div>
+        </div>
     </div>
 
     <!-- Footer -->
