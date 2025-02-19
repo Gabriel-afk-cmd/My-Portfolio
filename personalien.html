@@ -5,8 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personalien - Gabriel Häberli</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome für Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* Allgemeine Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom right, #eef2f3, #8e9eab);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigationsleiste */
+        nav {
+            background-color: #2c3e50;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: #ecf0f1;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        /* Hauptcontainer */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Header */
+        header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        /* Personalien Box */
+        .personal-info {
+            text-align: left;
+            padding: 20px;
+            border-radius: 10px;
+            background: #f7f7f7;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Liste */
+        .personal-info ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .personal-info li {
+            font-size: 1.2em;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Icons */
+        .personal-info li i {
+            margin-right: 10px;
+            color: #f39c12;
+        }
+
+        /* Fade-in Effekt */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-in-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            font-size: 1em;
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Navigation -->
     <nav>
         <a href="index.html">Startseite</a>
         <a href="personalien.html">Personalien</a>
@@ -18,21 +122,48 @@
         <a href="hobbys.html">Hobbys</a>
         <a href="kontakt.html">Kontakt</a>
     </nav>
-    <div class="container">
+
+    <!-- Hauptinhalt -->
+    <div class="container fade-in">
         <header>
             <h1>Personalien</h1>
         </header>
-        <section>
+
+        <div class="personal-info">
             <ul>
-                <li><strong>Name:</strong> Häberli</li>
-                <li><strong>Vorname:</strong> Gabriel</li>
-                <li><strong>Adresse:</strong> Dürrenrainstrasse 28</li>
-                <li><strong>Geburtsdatum:</strong> 20.10.2009</li>
-                <li><strong>Telefon:</strong> 076 503 60 50</li>
-                <li><strong>E-Mail:</strong> gabriel.haeberli@sus.schulepfungen.ch</li>
+                <li><i class="fas fa-user"></i> <strong>Name:</strong> Häberli</li>
+                <li><i class="fas fa-user"></i> <strong>Vorname:</strong> Gabriel</li>
+                <li><i class="fas fa-home"></i> <strong>Adresse:</strong> Dürrenrainstrasse 28</li>
+                <li><i class="fas fa-birthday-cake"></i> <strong>Geburtsdatum:</strong> 20.10.2009</li>
+                <li><i class="fas fa-phone"></i> <strong>Telefon:</strong> 076 503 60 50</li>
+                <li><i class="fas fa-envelope"></i> <strong>E-Mail:</strong> gabriel.haeberli@sus.schulepfungen.ch</li>
             </ul>
-        </section>
+        </div>
     </div>
-    <footer>© 2025 Gabriel Häberli. Alle Rechte vorbehalten.</footer>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 Gabriel Häberli. Alle Rechte vorbehalten.
+    </footer>
+
+    <!-- JavaScript für Fade-in Effekt -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let elements = document.querySelectorAll(".fade-in");
+
+            function checkScroll() {
+                elements.forEach(el => {
+                    let position = el.getBoundingClientRect().top;
+                    if (position < window.innerHeight - 100) {
+                        el.classList.add("visible");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", checkScroll);
+            checkScroll();
+        });
+    </script>
+
 </body>
 </html>
