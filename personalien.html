@@ -9,6 +9,44 @@
     <!-- Font Awesome für Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <script>
+        const translations = {
+            en: {
+                "page-title": "Personal Information",
+                "hero-title": "Personal Information",
+                "name": "Name",
+                "firstname": "First Name",
+                "address": "Address",
+                "birthdate": "Date of Birth",
+                "phone": "Phone",
+                "email": "Email"
+            },
+            de: {
+                "page-title": "Personalien",
+                "hero-title": "Personalien",
+                "name": "Name",
+                "firstname": "Vorname",
+                "address": "Adresse",
+                "birthdate": "Geburtsdatum",
+                "phone": "Telefon",
+                "email": "E-Mail"
+            }
+        };
+
+        function switchLanguage(lang) {
+            localStorage.setItem("language", lang);
+            document.querySelector("title").textContent = translations[lang]["page-title"];
+            document.querySelectorAll("[data-lang]").forEach(el => {
+                el.textContent = translations[lang][el.getAttribute("data-lang")];
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const savedLang = localStorage.getItem("language") || "de";
+            switchLanguage(savedLang);
+        });
+    </script>
+
     <style>
         /* Allgemeine Styles */
         body {
@@ -38,6 +76,26 @@
         }
         nav a:hover {
             color: #f39c12;
+        }
+
+        /* Sprachumschaltung */
+        .settings {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .settings button {
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 8px;
+            margin: 5px;
+            transition: background 0.3s ease;
+        }
+        .settings button:hover {
+            background: #f39c12;
         }
 
         /* Hauptcontainer */
@@ -86,16 +144,14 @@
             color: #f39c12;
         }
 
-        /* Fade-in Effekt */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-in-out;
+        /* E-Mail Link */
+        .personal-info a {
+            color: #3498db;
+            text-decoration: none;
         }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .personal-info a:hover {
+            text-decoration: underline;
         }
 
         /* Footer */
@@ -105,12 +161,13 @@
             background-color: #2c3e50;
             color: #ecf0f1;
             font-size: 1em;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Navigation bleibt auf Deutsch -->
     <nav>
         <a href="index.html">Startseite</a>
         <a href="personalien.html">Personalien</a>
@@ -123,20 +180,28 @@
         <a href="kontakt.html">Kontakt</a>
     </nav>
 
+    <!-- Sprachumschaltung -->
+    <div class="settings">
+        <button onclick="switchLanguage('de')">🇩🇪 Deutsch</button>
+        <button onclick="switchLanguage('en')">🇬🇧 English</button>
+    </div>
+
     <!-- Hauptinhalt -->
-    <div class="container fade-in">
+    <div class="container">
         <header>
-            <h1>Personalien</h1>
+            <h1 data-lang="hero-title">Personalien</h1>
         </header>
 
         <div class="personal-info">
             <ul>
-                <li><i class="fas fa-user"></i> <strong>Name:</strong> Häberli</li>
-                <li><i class="fas fa-user"></i> <strong>Vorname:</strong> Gabriel</li>
-                <li><i class="fas fa-home"></i> <strong>Adresse:</strong> Dürrenrainstrasse 28</li>
-                <li><i class="fas fa-birthday-cake"></i> <strong>Geburtsdatum:</strong> 20.10.2009</li>
-                <li><i class="fas fa-phone"></i> <strong>Telefon:</strong> 076 503 60 50</li>
-                <li><i class="fas fa-envelope"></i> <strong>E-Mail:</strong> gabriel.haeberli@sus.schulepfungen.ch</li>
+                <li><i class="fas fa-user"></i> <strong data-lang="name">Name</strong>: Häberli</li>
+                <li><i class="fas fa-user"></i> <strong data-lang="firstname">Vorname</strong>: Gabriel</li>
+                <li><i class="fas fa-home"></i> <strong data-lang="address">Adresse</strong>: Dürrenrainstrasse 28</li>
+                <li><i class="fas fa-birthday-cake"></i> <strong data-lang="birthdate">Geburtsdatum</strong>: 20.10.2009</li>
+                <li><i class="fas fa-phone"></i> <strong data-lang="phone">Telefon</strong>: 076 503 60 50</li>
+                <li><i class="fas fa-envelope"></i> <strong data-lang="email">E-Mail</strong>: 
+                    <a href="mailto:gabriel.haeberli@sus.schulepfungen.ch">gabriel.haeberli@sus.schulepfungen.ch</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -145,25 +210,6 @@
     <footer>
         © 2025 Gabriel Häberli. Alle Rechte vorbehalten.
     </footer>
-
-    <!-- JavaScript für Fade-in Effekt -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let elements = document.querySelectorAll(".fade-in");
-
-            function checkScroll() {
-                elements.forEach(el => {
-                    let position = el.getBoundingClientRect().top;
-                    if (position < window.innerHeight - 100) {
-                        el.classList.add("visible");
-                    }
-                });
-            }
-
-            window.addEventListener("scroll", checkScroll);
-            checkScroll();
-        });
-    </script>
 
 </body>
 </html>
