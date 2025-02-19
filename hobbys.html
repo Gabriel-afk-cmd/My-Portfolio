@@ -5,9 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hobbys - Gabriel Häberli</title>
     <link rel="stylesheet" href="style.css">
-    
+
     <!-- Font Awesome für Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        const translations = {
+            en: {
+                "page-title": "Hobbies",
+                "hero-title": "Hobbies",
+                "hobby-chess": "Chess",
+                "hobby-drums": "Drums",
+                "hobby-mma": "MMA / BJJ",
+                "hobby-photography": "Photography"
+            },
+            de: {
+                "page-title": "Hobbys",
+                "hero-title": "Hobbys",
+                "hobby-chess": "Schach",
+                "hobby-drums": "Schlagzeug",
+                "hobby-mma": "MMA / BJJ",
+                "hobby-photography": "Fotografieren"
+            }
+        };
+
+        function switchLanguage(lang) {
+            localStorage.setItem("language", lang);
+            document.querySelector("title").textContent = translations[lang]["page-title"];
+            document.querySelectorAll("[data-lang]").forEach(el => {
+                el.textContent = translations[lang][el.getAttribute("data-lang")];
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const savedLang = localStorage.getItem("language") || "de";
+            switchLanguage(savedLang);
+        });
+    </script>
 
     <style>
         /* Allgemeine Styles */
@@ -40,10 +74,30 @@
             color: #f39c12;
         }
 
+        /* Sprachumschaltung */
+        .settings {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .settings button {
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 8px;
+            margin: 5px;
+            transition: background 0.3s ease;
+        }
+        .settings button:hover {
+            background: #f39c12;
+        }
+
         /* Hauptcontainer */
         .container {
-            max-width: 1200px;
-            margin: 20px auto;
+            max-width: 800px;
+            margin: 40px auto;
             padding: 20px;
             background: white;
             border-radius: 15px;
@@ -57,68 +111,39 @@
             color: #2c3e50;
         }
 
-        /* Hobby Grid */
+        /* Grid für Hobbys */
         .hobby-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr;
             gap: 20px;
-            padding: 20px;
         }
 
-        /* Hobby Box */
-        .hobby {
-            position: relative;
-            overflow: hidden;
+        /* Hobby-Einträge */
+        .hobby-item {
+            text-align: center;
+            background: #f9f9f9;
+            padding: 15px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
-        .hobby:hover {
-            transform: scale(1.05);
+        .hobby-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
-        /* Bilder */
-        .hobby img {
+        .hobby-item img {
             width: 100%;
             height: auto;
-            display: block;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        /* Overlay mit Text */
-        .overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            text-align: center;
-            padding: 10px;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-        }
-
-        .hobby:hover .overlay {
-            opacity: 1;
-        }
-
-        /* Fade-in Animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-in-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Parallax Hintergrund */
-        .parallax {
-            background: url('images/hobby-background.jpg') center/cover fixed no-repeat;
-            height: 300px;
+        @media (min-width: 768px) {
+            .hobby-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         /* Footer */
@@ -128,12 +153,13 @@
             background-color: #2c3e50;
             color: #ecf0f1;
             font-size: 1em;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Navigation bleibt auf Deutsch -->
     <nav>
         <a href="index.html">Startseite</a>
         <a href="personalien.html">Personalien</a>
@@ -146,40 +172,35 @@
         <a href="kontakt.html">Kontakt</a>
     </nav>
 
-    <!-- Parallax Bereich -->
-    <div class="parallax"></div>
+    <!-- Sprachumschaltung -->
+    <div class="settings">
+        <button onclick="switchLanguage('de')">🇩🇪 Deutsch</button>
+        <button onclick="switchLanguage('en')">🇬🇧 English</button>
+    </div>
 
     <!-- Hauptinhalt -->
     <div class="container">
         <header>
-            <h1>Hobbys</h1>
+            <h1 data-lang="hero-title">Hobbys</h1>
         </header>
 
-        <!-- Hobby Grid -->
         <div class="hobby-grid">
-            <section class="hobby fade-in">
-                <h2><i class="fas fa-chess"></i> Schach</h2>
+            <div class="hobby-item">
+                <h2 data-lang="hobby-chess">Schach</h2>
                 <img src="images/schach.jpg" alt="Schachspiel">
-                <div class="overlay">Strategie und Taktik!</div>
-            </section>
-
-            <section class="hobby fade-in">
-                <h2><i class="fas fa-drum"></i> Schlagzeug</h2>
+            </div>
+            <div class="hobby-item">
+                <h2 data-lang="hobby-drums">Schlagzeug</h2>
                 <img src="images/IMG_6940.jpeg" alt="Schlagzeug">
-                <div class="overlay">Rhythmus und Leidenschaft!</div>
-            </section>
-
-            <section class="hobby fade-in">
-                <h2><i class="fas fa-fist-raised"></i> MMA / BJJ</h2>
+            </div>
+            <div class="hobby-item">
+                <h2 data-lang="hobby-mma">MMA / BJJ</h2>
                 <img src="images/Bildschirmfoto 2025-02-18 um 11.34.05.png" alt="MMA / BJJ Kampf">
-                <div class="overlay">Technik, Disziplin & Kraft!</div>
-            </section>
-
-            <section class="hobby fade-in">
-                <h2><i class="fas fa-camera"></i> Fotografieren</h2>
+            </div>
+            <div class="hobby-item">
+                <h2 data-lang="hobby-photography">Fotografieren</h2>
                 <img src="images/kamera.jpeg" alt="Kamera">
-                <div class="overlay">Momente für die Ewigkeit!</div>
-            </section>
+            </div>
         </div>
     </div>
 
@@ -187,25 +208,6 @@
     <footer>
         © 2025 Gabriel Häberli. Alle Rechte vorbehalten.
     </footer>
-
-    <!-- JavaScript für Scroll-Effekt -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let elements = document.querySelectorAll(".fade-in");
-
-            function checkScroll() {
-                elements.forEach(el => {
-                    let position = el.getBoundingClientRect().top;
-                    if (position < window.innerHeight - 100) {
-                        el.classList.add("visible");
-                    }
-                });
-            }
-
-            window.addEventListener("scroll", checkScroll);
-            checkScroll();
-        });
-    </script>
 
 </body>
 </html>
