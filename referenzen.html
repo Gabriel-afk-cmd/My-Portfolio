@@ -9,6 +9,40 @@
     <!-- Font Awesome für Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <script>
+        const translations = {
+            en: {
+                "page-title": "Reference",
+                "hero-title": "Reference",
+                "name": "Name",
+                "position": "Position",
+                "phone": "Phone",
+                "email": "Email"
+            },
+            de: {
+                "page-title": "Referenz",
+                "hero-title": "Referenz",
+                "name": "Name",
+                "position": "Position",
+                "phone": "Telefon",
+                "email": "E-Mail"
+            }
+        };
+
+        function switchLanguage(lang) {
+            localStorage.setItem("language", lang);
+            document.querySelector("title").textContent = translations[lang]["page-title"];
+            document.querySelectorAll("[data-lang]").forEach(el => {
+                el.textContent = translations[lang][el.getAttribute("data-lang")];
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const savedLang = localStorage.getItem("language") || "de";
+            switchLanguage(savedLang);
+        });
+    </script>
+
     <style>
         /* Allgemeine Styles */
         body {
@@ -38,6 +72,26 @@
         }
         nav a:hover {
             color: #f39c12;
+        }
+
+        /* Sprachumschaltung */
+        .settings {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .settings button {
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 8px;
+            margin: 5px;
+            transition: background 0.3s ease;
+        }
+        .settings button:hover {
+            background: #f39c12;
         }
 
         /* Hauptcontainer */
@@ -111,18 +165,6 @@
             text-decoration: underline;
         }
 
-        /* Fade-in Effekt */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-in-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         /* Footer */
         footer {
             text-align: center;
@@ -130,24 +172,13 @@
             background-color: #2c3e50;
             color: #ecf0f1;
             font-size: 1em;
-        }
-
-        /* Responsive Anpassung */
-        @media (max-width: 600px) {
-            .reference-container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .reference-details p {
-                justify-content: center;
-            }
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Navigation bleibt auf Deutsch -->
     <nav>
         <a href="index.html">Startseite</a>
         <a href="personalien.html">Personalien</a>
@@ -160,19 +191,25 @@
         <a href="kontakt.html">Kontakt</a>
     </nav>
 
+    <!-- Sprachumschaltung -->
+    <div class="settings">
+        <button onclick="switchLanguage('de')">🇩🇪 Deutsch</button>
+        <button onclick="switchLanguage('en')">🇬🇧 English</button>
+    </div>
+
     <!-- Hauptinhalt -->
-    <div class="container fade-in">
+    <div class="container">
         <header>
-            <h1>Referenz</h1>
+            <h1 data-lang="hero-title">Referenz</h1>
         </header>
 
         <section class="reference-container">
             <img src="images/Felix_luethi.jpg" alt="Felix Lüthi">
             <div class="reference-details">
-                <p><i class="fas fa-user"></i> <strong>Felix Lüthi</strong></p>
-                <p><i class="fas fa-chalkboard-teacher"></i> Klassenlehrer</p>
-                <p><i class="fas fa-phone"></i> 076 558 48 52</p>
-                <p><i class="fas fa-envelope"></i> 
+                <p><i class="fas fa-user"></i> <strong data-lang="name">Name</strong>: Felix Lüthi</p>
+                <p><i class="fas fa-chalkboard-teacher"></i> <strong data-lang="position">Position</strong>: Klassenlehrer</p>
+                <p><i class="fas fa-phone"></i> <strong data-lang="phone">Telefon</strong>: 076 558 48 52</p>
+                <p><i class="fas fa-envelope"></i> <strong data-lang="email">E-Mail</strong>: 
                     <a href="mailto:felix.luethi@schulepfungen.ch">felix.luethi@schulepfungen.ch</a>
                 </p>
             </div>
@@ -183,25 +220,6 @@
     <footer>
         © 2025 Gabriel Häberli. Alle Rechte vorbehalten.
     </footer>
-
-    <!-- JavaScript für Fade-in Effekt -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let elements = document.querySelectorAll(".fade-in");
-
-            function checkScroll() {
-                elements.forEach(el => {
-                    let position = el.getBoundingClientRect().top;
-                    if (position < window.innerHeight - 100) {
-                        el.classList.add("visible");
-                    }
-                });
-            }
-
-            window.addEventListener("scroll", checkScroll);
-            checkScroll();
-        });
-    </script>
 
 </body>
 </html>
