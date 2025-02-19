@@ -5,12 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schulbildung - Gabriel Häberli</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        const translations = {
+            en: {
+                "page-title": "Education",
+                "hero-title": "Education",
+                "edu-1": "Secondary School Seebel Pfungen",
+                "edu-2": "Secondary School Hohfurri, Wülflingen",
+                "edu-3": "Primary School Wyden, Wülflingen",
+                "edu-4": "Primary School Schachen, Rosenberg",
+                "edu-5": "Primary School Americano Batista, Recife"
+            },
+            de: {
+                "page-title": "Schulbildung",
+                "hero-title": "Schulbildung",
+                "edu-1": "Sekundarschule Seebel Pfungen",
+                "edu-2": "Sekundarschule Hohfurri, Wülflingen",
+                "edu-3": "Primarschule Wyden, Wülflingen",
+                "edu-4": "Primarschule Schachen, Rosenberg",
+                "edu-5": "Primarschule Americano Batista, Recife"
+            }
+        };
+
+        function switchLanguage(lang) {
+            localStorage.setItem("language", lang);
+            document.querySelector("title").textContent = translations[lang]["page-title"];
+            document.querySelectorAll("[data-lang]").forEach(el => {
+                el.textContent = translations[lang][el.getAttribute("data-lang")];
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const savedLang = localStorage.getItem("language") || "de";
+            switchLanguage(savedLang);
+        });
+    </script>
+
     <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom right, #eef2f3, #8e9eab);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #2c3e50;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: #ecf0f1;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        /* Language Switch */
+        .settings {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .settings button {
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 8px;
+            margin: 5px;
+            transition: background 0.3s ease;
+        }
+        .settings button:hover {
+            background: #f39c12;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header */
+        header h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #2c3e50;
+        }
+
+        /* Timeline */
         .timeline {
             position: relative;
             padding: 20px 0;
             list-style: none;
         }
+
         .timeline::before {
             content: '';
             position: absolute;
@@ -21,18 +130,22 @@
             background: #3498db;
             transform: translateX(-50%);
         }
+
         .timeline-item {
             padding: 20px;
             position: relative;
             width: 50%;
             box-sizing: border-box;
         }
+
         .timeline-item:nth-child(odd) {
             left: 0;
         }
+
         .timeline-item:nth-child(even) {
             left: 50%;
         }
+
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -44,19 +157,51 @@
             border-radius: 50%;
             z-index: 1;
         }
+
         .timeline-item:nth-child(even)::before {
             left: -12px;
             right: auto;
         }
+
         .timeline-content {
             background: #fff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 10px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 30px;
+            }
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            .timeline-item::before {
+                left: 0;
+                right: auto;
+            }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            font-size: 1em;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
+
+    <!-- Navigation (Stays in German) -->
     <nav>
         <a href="index.html">Startseite</a>
         <a href="personalien.html">Personalien</a>
@@ -68,43 +213,51 @@
         <a href="hobbys.html">Hobbys</a>
         <a href="kontakt.html">Kontakt</a>
     </nav>
+
+    <!-- Language Switch -->
+    <div class="settings">
+        <button onclick="switchLanguage('de')">🇩🇪 Deutsch</button>
+        <button onclick="switchLanguage('en')">🇬🇧 English</button>
+    </div>
+
+    <!-- Main Content -->
     <div class="container">
         <header>
-            <h1>Schulbildung</h1>
+            <h1 data-lang="hero-title">Schulbildung</h1>
         </header>
+
         <ul class="timeline">
             <li class="timeline-item">
                 <div class="timeline-content">
                     <h3>2023 - 2024</h3>
-                    <p>Sekundarschule Seebel Pfungen</p>
+                    <p data-lang="edu-1">Sekundarschule Seebel Pfungen</p>
                 </div>
             </li>
             <li class="timeline-item">
                 <div class="timeline-content">
                     <h3>2022 - 2023</h3>
-                    <p>Sekundarschule Hohfurri, Wülflingen</p>
+                    <p data-lang="edu-2">Sekundarschule Hohfurri, Wülflingen</p>
                 </div>
             </li>
             <li class="timeline-item">
                 <div class="timeline-content">
                     <h3>2018 - 2022</h3>
-                    <p>Primarschule Wyden, Wülflingen</p>
+                    <p data-lang="edu-3">Primarschule Wyden, Wülflingen</p>
                 </div>
             </li>
             <li class="timeline-item">
                 <div class="timeline-content">
                     <h3>2017 - 2018</h3>
-                    <p>Primarschule Schachen, Rosenberg</p>
-                </div>
-            </li>
-            <li class="timeline-item">
-                <div class="timeline-content">
-                    <h3>2014 - 2017</h3>
-                    <p>Primarschule Americano Batista, Recife</p>
+                    <p data-lang="edu-4">Primarschule Schachen, Rosenberg</p>
                 </div>
             </li>
         </ul>
     </div>
-    <footer>© 2025 Gabriel Häberli. Alle Rechte vorbehalten.</footer>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 Gabriel Häberli. Alle Rechte vorbehalten.
+    </footer>
+
 </body>
 </html>
