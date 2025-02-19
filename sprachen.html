@@ -71,6 +71,7 @@
         /* Spracheinträge */
         .language-item {
             display: flex;
+            flex-direction: column;
             align-items: center;
             background: #f9f9f9;
             padding: 15px;
@@ -89,7 +90,7 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            margin-right: 15px;
+            margin-bottom: 10px;
         }
 
         /* Sprachtext */
@@ -116,9 +117,9 @@
 
         .german { width: 100%; background: #2ecc71; }
         .portuguese { width: 100%; background: #2ecc71; }
-        .english { width: 85%; background: #2ecc71; }
-        .spanish { width: 85%; background: #2ecc71; }
-        .french { width: 50%; background: #e67e22; }
+        .english { width: 85%; background: #f1c40f; }
+        .spanish { width: 85%; background: #f1c40f; }
+        .french { width: 65%; background: #e67e22; }
 
         /* Fade-in Effekt */
         .fade-in {
@@ -164,36 +165,37 @@
         </header>
 
         <section>
+            <h2>Sprachkenntnisse</h2>
             <ul class="language-list">
                 <li class="language-item">
                     <img src="images/swiss_flag.png" alt="Schweiz">
                     <span>Deutsch: Muttersprache</span>
+                    <div class="progress-bar"><div class="progress german"></div></div>
                 </li>
-                <div class="progress-bar"><div class="progress german"></div></div>
 
                 <li class="language-item">
                     <img src="images/brazil_flag.png" alt="Brasilien">
                     <span>Portugiesisch: Muttersprache</span>
+                    <div class="progress-bar"><div class="progress portuguese"></div></div>
                 </li>
-                <div class="progress-bar"><div class="progress portuguese"></div></div>
 
                 <li class="language-item">
                     <img src="images/usa_flag.png" alt="USA">
                     <span>Englisch: Sehr gute Kenntnisse</span>
+                    <div class="progress-bar"><div class="progress english"></div></div>
                 </li>
-                <div class="progress-bar"><div class="progress english"></div></div>
 
                 <li class="language-item">
                     <img src="images/spain_flag.png" alt="Spanien">
                     <span>Spanisch: Sehr gute Kenntnisse</span>
+                    <div class="progress-bar"><div class="progress spanish"></div></div>
                 </li>
-                <div class="progress-bar"><div class="progress spanish"></div></div>
 
                 <li class="language-item">
                     <img src="images/france_flag.png" alt="Frankreich">
                     <span>Französisch: Gute Kenntnisse</span>
+                    <div class="progress-bar"><div class="progress french"></div></div>
                 </li>
-                <div class="progress-bar"><div class="progress french"></div></div>
             </ul>
         </section>
     </div>
