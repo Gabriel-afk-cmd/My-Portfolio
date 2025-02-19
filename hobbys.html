@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hobbys - Gabriel Häberli</title>
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Font Awesome für Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
+        /* Allgemeine Styles */
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(to bottom right, #eef2f3, #8e9eab);
@@ -13,6 +18,8 @@
             margin: 0;
             padding: 0;
         }
+
+        /* Navigationsleiste */
         nav {
             background-color: #2c3e50;
             padding: 15px;
@@ -32,6 +39,8 @@
         nav a:hover {
             color: #f39c12;
         }
+
+        /* Hauptcontainer */
         .container {
             max-width: 1200px;
             margin: 20px auto;
@@ -40,39 +49,79 @@
             border-radius: 15px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
+
+        /* Header */
         header h1 {
             text-align: center;
             font-size: 2.5em;
             color: #2c3e50;
         }
-        section {
-            margin-bottom: 40px;
-        }
-        h2 {
-            text-align: center;
-            color: #34495e;
-            font-size: 1.8em;
-            margin-bottom: 10px;
-        }
+
+        /* Hobby Grid */
         .hobby-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
+            padding: 20px;
         }
-        img {
-            width: 100%;
-            height: auto;
+
+        /* Hobby Box */
+        .hobby {
+            position: relative;
+            overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
         }
-        @media (min-width: 768px) {
-            .hobby-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            img {
-                max-width: 100%;
-            }
+
+        .hobby:hover {
+            transform: scale(1.05);
         }
+
+        /* Bilder */
+        .hobby img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Overlay mit Text */
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .hobby:hover .overlay {
+            opacity: 1;
+        }
+
+        /* Fade-in Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-in-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Parallax Hintergrund */
+        .parallax {
+            background: url('images/hobby-background.jpg') center/cover fixed no-repeat;
+            height: 300px;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
             padding: 20px;
@@ -83,6 +132,8 @@
     </style>
 </head>
 <body>
+
+    <!-- Navigation -->
     <nav>
         <a href="index.html">Startseite</a>
         <a href="personalien.html">Personalien</a>
@@ -94,29 +145,67 @@
         <a href="hobbys.html">Hobbys</a>
         <a href="kontakt.html">Kontakt</a>
     </nav>
+
+    <!-- Parallax Bereich -->
+    <div class="parallax"></div>
+
+    <!-- Hauptinhalt -->
     <div class="container">
         <header>
             <h1>Hobbys</h1>
         </header>
+
+        <!-- Hobby Grid -->
         <div class="hobby-grid">
-            <section>
-                <h2>Schach</h2>
+            <section class="hobby fade-in">
+                <h2><i class="fas fa-chess"></i> Schach</h2>
                 <img src="images/schach.jpg" alt="Schachspiel">
+                <div class="overlay">Strategie und Taktik!</div>
             </section>
-            <section>
-                <h2>Schlagzeug</h2>
+
+            <section class="hobby fade-in">
+                <h2><i class="fas fa-drum"></i> Schlagzeug</h2>
                 <img src="images/IMG_6940.jpeg" alt="Schlagzeug">
+                <div class="overlay">Rhythmus und Leidenschaft!</div>
             </section>
-            <section>
-                <h2>MMA / BJJ</h2>
+
+            <section class="hobby fade-in">
+                <h2><i class="fas fa-fist-raised"></i> MMA / BJJ</h2>
                 <img src="images/Bildschirmfoto 2025-02-18 um 11.34.05.png" alt="MMA / BJJ Kampf">
+                <div class="overlay">Technik, Disziplin & Kraft!</div>
             </section>
-            <section>
-                <h2>Fotografieren</h2>
+
+            <section class="hobby fade-in">
+                <h2><i class="fas fa-camera"></i> Fotografieren</h2>
                 <img src="images/kamera.jpeg" alt="Kamera">
+                <div class="overlay">Momente für die Ewigkeit!</div>
             </section>
         </div>
     </div>
-    <footer>© 2025 Gabriel Häberli. Alle Rechte vorbehalten.</footer>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 Gabriel Häberli. Alle Rechte vorbehalten.
+    </footer>
+
+    <!-- JavaScript für Scroll-Effekt -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let elements = document.querySelectorAll(".fade-in");
+
+            function checkScroll() {
+                elements.forEach(el => {
+                    let position = el.getBoundingClientRect().top;
+                    if (position < window.innerHeight - 100) {
+                        el.classList.add("visible");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", checkScroll);
+            checkScroll();
+        });
+    </script>
+
 </body>
 </html>
