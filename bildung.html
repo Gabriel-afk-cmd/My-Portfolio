@@ -12,6 +12,45 @@
     <script>
         const translations = {
             en: {
+                "nav-home": "Home",
+                "nav-personal": "Personal Information",
+                "nav-education": "Education",
+                "nav-certificates": "Certificates",
+                "nav-experience": "Work Experience",
+                "nav-languages": "Languages",
+                "nav-references": "References",
+                "nav-hobbies": "Hobbies",
+                "nav-contact": "Contact"
+            },
+            de: {
+                "nav-home": "Startseite",
+                "nav-personal": "Personalien",
+                "nav-education": "Schulbildung",
+                "nav-certificates": "Zertifikate",
+                "nav-experience": "Berufserfahrungen",
+                "nav-languages": "Sprachen",
+                "nav-references": "Referenzen",
+                "nav-hobbies": "Hobbys",
+                "nav-contact": "Kontakt"
+            }
+        };
+
+        function switchLanguage(lang) {
+            localStorage.setItem("language", lang);
+            document.querySelectorAll("[data-lang]").forEach(el => {
+                el.textContent = translations[lang][el.getAttribute("data-lang")];
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const savedLang = localStorage.getItem("language") || "de";
+            switchLanguage(savedLang);
+        });
+    </script>
+
+    <style>
+        const translations = {
+            en: {
                 "page-title": "Education",
                 "hero-title": "Education",
                 "edu-1": "Secondary School Seebel Pfungen",
