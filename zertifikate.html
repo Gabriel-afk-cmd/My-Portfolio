@@ -20,9 +20,18 @@
                 "cert-4-title": "Multicheck ICT Aptitude Analysis",
                 "cert-4-desc": "Results of the ICT EFZ aptitude test.",
                 "cert-5-title": "SQL Fundamentals",
-                "cert-5-desc": "Fundamentals of programming with SQL"
+                "cert-5-desc": "Fundamentals of programming with SQL.",
                 "view-certificate": "View Certificate",
-                "view-analysis": "View Analysis"
+                "view-analysis": "View Analysis",
+                "nav-home": "Home",
+                "nav-personal": "Personal Info",
+                "nav-education": "Education",
+                "nav-certificates": "Certificates",
+                "nav-experience": "Work Experience",
+                "nav-languages": "Languages",
+                "nav-references": "References",
+                "nav-hobbies": "Hobbies",
+                "nav-contact": "Contact"
             },
             de: {
                 "page-title": "Zertifikate",
@@ -36,9 +45,18 @@
                 "cert-4-title": "Multicheck ICT Eignungsanalyse",
                 "cert-4-desc": "Ergebnisse der Eignungsanalyse für Informatiker EFZ.",
                 "cert-5-title": "SQL Fundamentals",
-                "cert-5-desc": "Grundlagen der Programmierung mit SQL"
+                "cert-5-desc": "Grundlagen der Programmierung mit SQL.",
                 "view-certificate": "Zertifikat ansehen",
-                "view-analysis": "Analyse ansehen"
+                "view-analysis": "Analyse ansehen",
+                "nav-home": "Startseite",
+                "nav-personal": "Personalien",
+                "nav-education": "Schulbildung",
+                "nav-certificates": "Zertifikate",
+                "nav-experience": "Berufserfahrungen",
+                "nav-languages": "Sprachen",
+                "nav-references": "Referenzen",
+                "nav-hobbies": "Hobbys",
+                "nav-contact": "Kontakt"
             }
         };
 
@@ -173,18 +191,17 @@
 <body>
 
     <!-- Navigation -->
-    <nav>
-        <a href="index.html">Startseite</a>
-        <a href="personalien.html">Personalien</a>
-        <a href="bildung.html">Schulbildung</a>
-        <a href="zertifikate.html">Zertifikate</a>
-        <a href="erfahrungen.html">Berufserfahrungen</a>
-        <a href="sprachen.html">Sprachen</a>
-        <a href="referenzen.html">Referenz</a>
-        <a href="hobbys.html">Hobbys</a>
-        <a href="kontakt.html">Kontakt</a>
+   <nav>
+    <a href="index.html" data-lang="nav-home">Startseite</a>
+    <a href="personalien.html" data-lang="nav-personal">Personalien</a>
+    <a href="bildung.html" data-lang="nav-education">Schulbildung</a>
+    <a href="zertifikate.html" data-lang="nav-certificates">Zertifikate</a>
+    <a href="erfahrungen.html" data-lang="nav-experience">Berufserfahrungen</a>
+    <a href="sprachen.html" data-lang="nav-languages">Sprachen</a>
+    <a href="referenzen.html" data-lang="nav-references">Referenzen</a>
+    <a href="hobbys.html" data-lang="nav-hobbies">Hobbys</a>
+    <a href="kontakt.html" data-lang="nav-contact">Kontakt</a>
     </nav>
-
     <!-- Sprachumschaltung -->
     <div class="settings">
         <button onclick="switchLanguage('de')">🇩🇪 Deutsch</button>
