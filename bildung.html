@@ -18,7 +18,16 @@
                 "edu-2": "Secondary School Hohfurri, Wülflingen",
                 "edu-3": "Primary School Wyden, Wülflingen",
                 "edu-4": "Primary School Schachen, Rosenberg",
-                "edu-5": "Primary School Americano Batista, Recife"
+                "edu-5": "Primary School Americano Batista, Recife",
+                "nav-home": "Home",
+                "nav-personal": "Personal Info",
+                "nav-education": "Education",
+                "nav-certificates": "Certificates",
+                "nav-experience": "Work Experience",
+                "nav-languages": "Languages",
+                "nav-references": "References",
+                "nav-hobbies": "Hobbies",
+                "nav-contact": "Contact"
             },
             de: {
                 "page-title": "Schulbildung",
@@ -27,9 +36,18 @@
                 "edu-2": "Sekundarschule Hohfurri, Wülflingen",
                 "edu-3": "Primarschule Wyden, Wülflingen",
                 "edu-4": "Primarschule Schachen, Rosenberg",
-                "edu-5": "Primarschule Americano Batista, Recife"
+                "edu-5": "Primarschule Americano Batista, Recife",
+                "nav-home": "Startseite",
+                "nav-personal": "Personalien",
+                "nav-education": "Schulbildung",
+                "nav-certificates": "Zertifikate",
+                "nav-experience": "Berufserfahrungen",
+                "nav-languages": "Sprachen",
+                "nav-references": "Referenzen",
+                "nav-hobbies": "Hobbys",
+                "nav-contact": "Kontakt"
             }
-        };
+};
 
         function switchLanguage(lang) {
             localStorage.setItem("language", lang);
@@ -203,16 +221,16 @@
 
     <!-- Navigation (Stays in German) -->
     <nav>
-        <a href="index.html">Startseite</a>
-        <a href="personalien.html">Personalien</a>
-        <a href="bildung.html">Schulbildung</a>
-        <a href="zertifikate.html">Zertifikate</a>
-        <a href="erfahrungen.html">Berufserfahrungen</a>
-        <a href="sprachen.html">Sprachen</a>
-        <a href="referenzen.html">Referenz</a>
-        <a href="hobbys.html">Hobbys</a>
-        <a href="kontakt.html">Kontakt</a>
-    </nav>
+    <a href="index.html" data-lang="nav-home">Startseite</a>
+    <a href="personalien.html" data-lang="nav-personal">Personalien</a>
+    <a href="bildung.html" data-lang="nav-education">Schulbildung</a>
+    <a href="zertifikate.html" data-lang="nav-certificates">Zertifikate</a>
+    <a href="erfahrungen.html" data-lang="nav-experience">Berufserfahrungen</a>
+    <a href="sprachen.html" data-lang="nav-languages">Sprachen</a>
+    <a href="referenzen.html" data-lang="nav-references">Referenzen</a>
+    <a href="hobbys.html" data-lang="nav-hobbies">Hobbys</a>
+    <a href="kontakt.html" data-lang="nav-contact">Kontakt</a>
+</nav>
 
     <!-- Language Switch -->
     <div class="settings">
