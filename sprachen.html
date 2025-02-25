@@ -18,7 +18,16 @@
                 "lang-portuguese": "Portuguese: Native",
                 "lang-english": "English: Very good",
                 "lang-spanish": "Spanish: Very good",
-                "lang-french": "French: Good"
+                "lang-french": "French: Good",
+                "nav-home": "Home",
+                "nav-personal": "Personal Info",
+                "nav-education": "Education",
+                "nav-certificates": "Certificates",
+                "nav-experience": "Work Experience",
+                "nav-languages": "Languages",
+                "nav-references": "References",
+                "nav-hobbies": "Hobbies",
+                "nav-contact": "Contact"
             },
             de: {
                 "page-title": "Sprachen",
@@ -27,10 +36,18 @@
                 "lang-portuguese": "Portugiesisch: Muttersprache",
                 "lang-english": "Englisch: Sehr gute Kenntnisse",
                 "lang-spanish": "Spanisch: Sehr gute Kenntnisse",
-                "lang-french": "Französisch: Gute Kenntnisse"
+                "lang-french": "Französisch: Gute Kenntnisse",
+                "nav-home": "Startseite",
+                "nav-personal": "Personalien",
+                "nav-education": "Schulbildung",
+                "nav-certificates": "Zertifikate",
+                "nav-experience": "Berufserfahrungen",
+                "nav-languages": "Sprachen",
+                "nav-references": "Referenzen",
+                "nav-hobbies": "Hobbys",
+                "nav-contact": "Kontakt"
             }
         };
-
         function switchLanguage(lang) {
             localStorage.setItem("language", lang);
             document.querySelector("title").textContent = translations[lang]["page-title"];
@@ -164,15 +181,15 @@
 
     <!-- Navigation bleibt auf Deutsch -->
     <nav>
-        <a href="index.html">Startseite</a>
-        <a href="personalien.html">Personalien</a>
-        <a href="bildung.html">Schulbildung</a>
-        <a href="zertifikate.html">Zertifikate</a>
-        <a href="erfahrungen.html">Berufserfahrungen</a>
-        <a href="sprachen.html">Sprachen</a>
-        <a href="referenzen.html">Referenz</a>
-        <a href="hobbys.html">Hobbys</a>
-        <a href="kontakt.html">Kontakt</a>
+    <a href="index.html" data-lang="nav-home">Startseite</a>
+    <a href="personalien.html" data-lang="nav-personal">Personalien</a>
+    <a href="bildung.html" data-lang="nav-education">Schulbildung</a>
+    <a href="zertifikate.html" data-lang="nav-certificates">Zertifikate</a>
+    <a href="erfahrungen.html" data-lang="nav-experience">Berufserfahrungen</a>
+    <a href="sprachen.html" data-lang="nav-languages">Sprachen</a>
+    <a href="referenzen.html" data-lang="nav-references">Referenzen</a>
+    <a href="hobbys.html" data-lang="nav-hobbies">Hobbys</a>
+    <a href="kontakt.html" data-lang="nav-contact">Kontakt</a>
     </nav>
 
     <!-- Sprachumschaltung -->
