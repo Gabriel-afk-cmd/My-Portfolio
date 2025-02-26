@@ -5,38 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Berufserfahrungen - Gabriel Häberli</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <script>
         const translations = {
-        en: {
-            "page-title": "Work Experience",
-            "hero-title": "Work Experience",
-            "internship": "Internships",
-            "nav-home": "Home",
-            "nav-personal": "Personal Info",
-            "nav-education": "Education",
-            "nav-certificates": "Certificates",
-            "nav-experience": "Work Experience",
-            "nav-languages": "Languages",
-            "nav-references": "References",
-            "nav-hobbies": "Hobbies",
-            "nav-contact": "Contact"
-        },
-        de: {
-            "page-title": "Berufserfahrungen",
-            "hero-title": "Berufserfahrungen",
-            "internship": "Schnupperlehren",
-            "nav-home": "Startseite",
-            "nav-personal": "Personalien",
-            "nav-education": "Schulbildung",
-            "nav-certificates": "Zertifikate",
-            "nav-experience": "Berufserfahrungen",
-            "nav-languages": "Sprachen",
-            "nav-references": "Referenzen",
-            "nav-hobbies": "Hobbys",
-            "nav-contact": "Kontakt"
-        }
-    };
+            en: {
+                "page-title": "Work Experience",
+                "hero-title": "Work Experience",
+                "internship": "Internships",
+                "review-button": "View Evaluation",
+                "internship-1": "IT Specialist EFZ Platform Development, Comfox AG, January 2025",
+                "internship-2": "IT Specialist EFZ Platform Development, Baumer Electric, January 2025",
+                "internship-3": "IT Specialist EFZ Platform Development, UMB, February 2025",
+                "internship-4": "IT Specialist EFZ Platform Development, IWC, February 2025",
+                "internship-5": "IT Specialist EFZ Platform Development, Siemens, March 2025",
+                "internship-6": "IT Specialist EFZ Application Development, KMS, March 2025",
+            },
+            de: {
+                "page-title": "Berufserfahrungen",
+                "hero-title": "Berufserfahrungen",
+                "internship": "Schnupperlehren",
+                "review-button": "Bewertung ansehen",
+                "internship-1": "Informatiker EFZ Plattformentwicklung, Comfox AG, Januar 2025",
+                "internship-2": "Informatiker EFZ Plattformentwicklung, Baumer Electric, Januar 2025",
+                "internship-3": "Informatiker EFZ Plattformentwicklung, UMB, Februar 2025",
+                "internship-4": "Informatiker EFZ Plattformentwicklung, IWC, Februar 2025",
+                "internship-5": "Informatiker EFZ Applikationsentwicklung, Siemens, März 2025",
+                "internship-6": "Informatiker EFZ Applikationsentwicklung, KMS, März 2025",
+            }
+        };
 
         function switchLanguage(lang) {
             localStorage.setItem("language", lang);
@@ -51,45 +47,161 @@
             switchLanguage(savedLang);
         });
     </script>
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom right, #eef2f3, #8e9eab);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #2c3e50;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: #ecf0f1;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        /* Language Switch */
+        .settings {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .settings button {
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 8px;
+            margin: 5px;
+            transition: background 0.3s ease;
+        }
+        .settings button:hover {
+            background: #f39c12;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Work Experience Sections */
+        h2 {
+            text-align: center;
+            color: #34495e;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        /* Work Experience List */
+        .experience-list {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        .experience-item {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
+        }
+
+        .experience-item button {
+            background: #3498db;
+            color: white;
+            padding: 10px;
+            font-size: 1em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .experience-item button:hover {
+            background: #2980b9;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            font-size: 1em;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
+    <!-- Navigation -->
     <nav>
-        <a href="index.html" data-lang="nav-home">Startseite</a>
-        <a href="personalien.html" data-lang="nav-personal">Personalien</a>
-        <a href="bildung.html" data-lang="nav-education">Schulbildung</a>
-        <a href="zertifikate.html" data-lang="nav-certificates">Zertifikate</a>
-        <a href="erfahrungen.html" data-lang="nav-experience">Berufserfahrungen</a>
-        <a href="sprachen.html" data-lang="nav-languages">Sprachen</a>
-        <a href="referenzen.html" data-lang="nav-references">Referenzen</a>
-        <a href="hobbys.html" data-lang="nav-hobbies">Hobbys</a>
-        <a href="kontakt.html" data-lang="nav-contact">Kontakt</a>
+        <a href="index.html">Startseite</a>
+        <a href="personalien.html">Personalien</a>
+        <a href="bildung.html">Schulbildung</a>
+        <a href="zertifikate.html">Zertifikate</a>
+        <a href="erfahrungen.html">Berufserfahrungen</a>
+        <a href="sprachen.html">Sprachen</a>
+        <a href="referenzen.html">Referenzen</a>
+        <a href="hobbys.html">Hobbys</a>
+        <a href="kontakt.html">Kontakt</a>
     </nav>
 
+    <!-- Language Switch -->
+    <div class="settings">
+        <button onclick="switchLanguage('de')">🇩🇪 Deutsch</button>
+        <button onclick="switchLanguage('en')">🇬🇧 English</button>
+    </div>
+
+    <!-- Main Content -->
     <div class="container">
         <header>
             <h1 data-lang="hero-title">Berufserfahrungen</h1>
         </header>
-        
-        <div class="experience-grid">
-            <div class="experience-item">
-                <h2 data-lang="internship">Schnupperlehren</h2>
-                <ul>
-                    <li><a href="Files/Plattformentwicklung Schnupperlehre UMB.pdf" target="_blank">Informatiker EFZ Plattformentwicklung, UMB</a></li>
-                    <li><a href="Files/Applikationsentwicklung Schnupperlehre Baumer.pdf" target="_blank">Informatiker EFZ Applikationsentwicklung, Baumer</a></li>
-                    <li><a href="Files/Platformentwicklung Schnupperlehre Baumer.pdf" target="_blank">Informatiker EFZ Plattformentwicklung, Baumer</a></li>
-                    <li><a href="Files/Platformentwickung Schnupperlehre COMFOX.pdf" target="_blank">Informatiker EFZ Plattformentwicklung, Comfox</a></li>
-                    <li><a href="Files/Applikationsentwicklung Schnupperlehre KMS.pdf" target="_blank">Informatiker EFZ Applikationsentwicklung, KMS</a></li>
-                    <li><a href="Files/Applikationsentwicklung Schnupperlehre Siemens.pdf" target="_blank">Informatiker EFZ Applikationsentwicklung, Siemens</a></li>
-                </ul>
-                <img src="images/code-example.png" alt="Code example">
-            </div>
-        </div>
+
+        <h2 data-lang="internship">Schnupperlehren</h2>
+        <ul class="experience-list">
+            <li class="experience-item" data-lang="internship-1">
+                <button onclick="window.open('Files/Platformentwickung Schnupperlehre COMFOX.pdf')">Bewertung ansehen</button>
+            </li>
+            <li class="experience-item" data-lang="internship-2">
+                <button onclick="window.open('Files/Platformentwicklung Schnupperlehre Baumer.pdf')">Bewertung ansehen</button>
+            </li>
+            <li class="experience-item" data-lang="internship-3">
+                <button onclick="window.open('Files/Plattformentwicklung Schnupperlehre UMB.pdf')">Bewertung ansehen</button>
+            </li>
+        </ul>
     </div>
 
-    <footer>
-        © 2025 Gabriel Häberli. Alle Rechte vorbehalten.
-    </footer>
+    <!-- Footer -->
+    <footer>© 2025 Gabriel Häberli. Alle Rechte vorbehalten.</footer>
 
 </body>
 </html>
