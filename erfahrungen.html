@@ -1,57 +1,42 @@
-DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-lang="page-title">Berufserfahrungen - Gabriel Häberli</title>
+    <title>Berufserfahrungen - Gabriel Häberli</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
     <script>
         const translations = {
-            en: {
-                "page-title": "Work Experience",
-                "hero-title": "Work Experience",
-                "internship": "Internships",
-                "view-review": "View Review",
-                "internship-1": "IT Specialist EFZ Platform Development, Comfox AG, January 2025",
-                "internship-2": "IT Specialist EFZ Platform Development, Baumer Electric, January 2025",
-                "internship-3": "IT Specialist EFZ Platform Development, UMB, February 2025",
-                "internship-4": "IT Specialist EFZ Application Development, Baumer Electric, January 2025",
-                "internship-5": "IT Specialist EFZ Application Development, KMS, 2025",
-                "internship-6": "IT Specialist EFZ Application Development, Siemens, 2025",
-                "nav-home": "Home",
-                "nav-personal": "Personal Info",
-                "nav-education": "Education",
-                "nav-certificates": "Certificates",
-                "nav-experience": "Work Experience",
-                "nav-languages": "Languages",
-                "nav-references": "References",
-                "nav-hobbies": "Hobbies",
-                "nav-contact": "Contact"
-            },
-            de: {
-                "page-title": "Berufserfahrungen",
-                "hero-title": "Berufserfahrungen",
-                "internship": "Schnupperlehren",
-                "view-review": "Bewertung ansehen",
-                "internship-1": "Informatiker EFZ Plattformentwicklung, Comfox AG, Januar 2025",
-                "internship-2": "Informatiker EFZ Plattformentwicklung, Baumer Electric, Januar 2025",
-                "internship-3": "Informatiker EFZ Plattformentwicklung, UMB, Februar 2025",
-                "internship-4": "Informatiker EFZ Applikationsentwicklung, Baumer Electric, Januar 2025",
-                "internship-5": "Informatiker EFZ Applikationsentwicklung, KMS, 2025",
-                "internship-6": "Informatiker EFZ Applikationsentwicklung, Siemens, 2025",
-                "nav-home": "Startseite",
-                "nav-personal": "Personalien",
-                "nav-education": "Schulbildung",
-                "nav-certificates": "Zertifikate",
-                "nav-experience": "Berufserfahrungen",
-                "nav-languages": "Sprachen",
-                "nav-references": "Referenzen",
-                "nav-hobbies": "Hobbys",
-                "nav-contact": "Kontakt"
-            }
-        };
+        en: {
+            "page-title": "Work Experience",
+            "hero-title": "Work Experience",
+            "internship": "Internships",
+            "nav-home": "Home",
+            "nav-personal": "Personal Info",
+            "nav-education": "Education",
+            "nav-certificates": "Certificates",
+            "nav-experience": "Work Experience",
+            "nav-languages": "Languages",
+            "nav-references": "References",
+            "nav-hobbies": "Hobbies",
+            "nav-contact": "Contact"
+        },
+        de: {
+            "page-title": "Berufserfahrungen",
+            "hero-title": "Berufserfahrungen",
+            "internship": "Schnupperlehren",
+            "nav-home": "Startseite",
+            "nav-personal": "Personalien",
+            "nav-education": "Schulbildung",
+            "nav-certificates": "Zertifikate",
+            "nav-experience": "Berufserfahrungen",
+            "nav-languages": "Sprachen",
+            "nav-references": "Referenzen",
+            "nav-hobbies": "Hobbys",
+            "nav-contact": "Kontakt"
+        }
+    };
 
         function switchLanguage(lang) {
             localStorage.setItem("language", lang);
@@ -68,6 +53,7 @@ DOCTYPE html>
     </script>
 </head>
 <body>
+
     <nav>
         <a href="index.html" data-lang="nav-home">Startseite</a>
         <a href="personalien.html" data-lang="nav-personal">Personalien</a>
@@ -84,28 +70,26 @@ DOCTYPE html>
         <header>
             <h1 data-lang="hero-title">Berufserfahrungen</h1>
         </header>
-
-        <div class="experience-grid">
-            <div class="experience-item">
-                <img src="images/server-example.png" alt="Server example">
-            </div>
-        </div>
-
+        
         <div class="experience-grid">
             <div class="experience-item">
                 <h2 data-lang="internship">Schnupperlehren</h2>
                 <ul>
-                    <li><a href="files/schnupperlehre_comfox.pdf" target="_blank" data-lang="internship-1">Bewertung ansehen</a></li>
-                    <li><a href="files/schnupperlehre_baumer_platform.pdf" target="_blank" data-lang="internship-2">Bewertung ansehen</a></li>
-                    <li><a href="files/schnupperlehre_umb.pdf" target="_blank" data-lang="internship-3">Bewertung ansehen</a></li>
-                    <li><a href="files/schnupperlehre_baumer_app.pdf" target="_blank" data-lang="internship-4">Bewertung ansehen</a></li>
-                    <li><a href="files/schnupperlehre_kms.pdf" target="_blank" data-lang="internship-5">Bewertung ansehen</a></li>
-                    <li><a href="files/schnupperlehre_siemens.pdf" target="_blank" data-lang="internship-6">Bewertung ansehen</a></li>
+                    <li><a href="Files/Plattformentwicklung Schnupperlehre UMB.pdf" target="_blank">Informatiker EFZ Plattformentwicklung, UMB</a></li>
+                    <li><a href="Files/Applikationsentwicklung Schnupperlehre Baumer.pdf" target="_blank">Informatiker EFZ Applikationsentwicklung, Baumer</a></li>
+                    <li><a href="Files/Platformentwicklung Schnupperlehre Baumer.pdf" target="_blank">Informatiker EFZ Plattformentwicklung, Baumer</a></li>
+                    <li><a href="Files/Platformentwickung Schnupperlehre COMFOX.pdf" target="_blank">Informatiker EFZ Plattformentwicklung, Comfox</a></li>
+                    <li><a href="Files/Applikationsentwicklung Schnupperlehre KMS.pdf" target="_blank">Informatiker EFZ Applikationsentwicklung, KMS</a></li>
+                    <li><a href="Files/Applikationsentwicklung Schnupperlehre Siemens.pdf" target="_blank">Informatiker EFZ Applikationsentwicklung, Siemens</a></li>
                 </ul>
+                <img src="images/code-example.png" alt="Code example">
             </div>
         </div>
     </div>
 
-    <footer>© 2025 Gabriel Häberli. Alle Rechte vorbehalten.</footer>
+    <footer>
+        © 2025 Gabriel Häberli. Alle Rechte vorbehalten.
+    </footer>
+
 </body>
 </html>
