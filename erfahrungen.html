@@ -1,11 +1,12 @@
-<!DOCTYPE html>
+DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-lang="page-title">Berufserfahrungen - Gabriel Häberli</title>
     <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <script>
         const translations = {
             en: {
@@ -67,8 +68,6 @@
     </script>
 </head>
 <body>
-
-    <!-- Navigation -->
     <nav>
         <a href="index.html" data-lang="nav-home">Startseite</a>
         <a href="personalien.html" data-lang="nav-personal">Personalien</a>
@@ -81,78 +80,32 @@
         <a href="kontakt.html" data-lang="nav-contact">Kontakt</a>
     </nav>
 
-    <!-- Sprachumschaltung -->
-    <div class="settings">
-        <button onclick="switchLanguage('de')">🇩🇪 Deutsch</button>
-        <button onclick="switchLanguage('en')">🇬🇧 English</button>
-    </div>
-
-    <!-- Hauptinhalt -->
     <div class="container">
         <header>
             <h1 data-lang="hero-title">Berufserfahrungen</h1>
         </header>
 
-        <!-- Bild -->
         <div class="experience-grid">
             <div class="experience-item">
                 <img src="images/server-example.png" alt="Server example">
             </div>
         </div>
 
-        <!-- Schnupperlehren -->
         <div class="experience-grid">
             <div class="experience-item">
                 <h2 data-lang="internship">Schnupperlehren</h2>
-
-                <div class="experience-item">
-                    <p data-lang="internship-1">Informatiker EFZ Plattformentwicklung, Comfox AG</p>
-                    <a href="files/schnupperlehre_comfox.pdf" target="_blank">
-                        <button data-lang="view-review">Bewertung ansehen</button>
-                    </a>
-                </div>
-
-                <div class="experience-item">
-                    <p data-lang="internship-2">Informatiker EFZ Plattformentwicklung, Baumer Electric</p>
-                    <a href="files/schnupperlehre_baumer_platform.pdf" target="_blank">
-                        <button data-lang="view-review">Bewertung ansehen</button>
-                    </a>
-                </div>
-
-                <div class="experience-item">
-                    <p data-lang="internship-3">Informatiker EFZ Plattformentwicklung, UMB</p>
-                    <a href="files/schnupperlehre_umb.pdf" target="_blank">
-                        <button data-lang="view-review">Bewertung ansehen</button>
-                    </a>
-                </div>
-
-                <div class="experience-item">
-                    <p data-lang="internship-4">Informatiker EFZ Applikationsentwicklung, Baumer Electric</p>
-                    <a href="files/schnupperlehre_baumer_app.pdf" target="_blank">
-                        <button data-lang="view-review">Bewertung ansehen</button>
-                    </a>
-                </div>
-
-                <div class="experience-item">
-                    <p data-lang="internship-5">Informatiker EFZ Applikationsentwicklung, KMS</p>
-                    <a href="files/schnupperlehre_kms.pdf" target="_blank">
-                        <button data-lang="view-review">Bewertung ansehen</button>
-                    </a>
-                </div>
-
-                <div class="experience-item">
-                    <p data-lang="internship-6">Informatiker EFZ Applikationsentwicklung, Siemens</p>
-                    <a href="files/schnupperlehre_siemens.pdf" target="_blank">
-                        <button data-lang="view-review">Bewertung ansehen</button>
-                    </a>
-                </div>
-
+                <ul>
+                    <li><a href="files/schnupperlehre_comfox.pdf" target="_blank" data-lang="internship-1">Bewertung ansehen</a></li>
+                    <li><a href="files/schnupperlehre_baumer_platform.pdf" target="_blank" data-lang="internship-2">Bewertung ansehen</a></li>
+                    <li><a href="files/schnupperlehre_umb.pdf" target="_blank" data-lang="internship-3">Bewertung ansehen</a></li>
+                    <li><a href="files/schnupperlehre_baumer_app.pdf" target="_blank" data-lang="internship-4">Bewertung ansehen</a></li>
+                    <li><a href="files/schnupperlehre_kms.pdf" target="_blank" data-lang="internship-5">Bewertung ansehen</a></li>
+                    <li><a href="files/schnupperlehre_siemens.pdf" target="_blank" data-lang="internship-6">Bewertung ansehen</a></li>
+                </ul>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>© 2025 Gabriel Häberli. Alle Rechte vorbehalten.</footer>
-
 </body>
 </html>
